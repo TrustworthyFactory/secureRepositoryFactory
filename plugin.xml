@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+        <page
+            class="com.thalesgroup.optet.securerepository.preferences.svnPreferencePage"
+            id="com.thalesgroup.optet.securerepository.preferences.svnPreferencePage"
+            category="com.thalesgroup.optet.devenv.preferences.OptetMainPage"
+            name="Optet SVN Preferences">
+      </page>
+   </extension>
+      <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.thalesgroup.optet.securerepository.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="com.thalesgroup.optet.devenv.menus.Optet"
+               label="Optet Menu"
+               mnemonic="M">
+            <command
+                  commandId="com.thalesgroup.optet.securerepository.commands.browseRepoCommand"
+                  id="com.thalesgroup.optet.devenv.menus.Optet"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   
+     <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="com.thalesgroup.optet.devenv.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="com.thalesgroup.optet.securerepository.commands.category"
+            id="com.thalesgroup.optet.securerepository.commands.browseRepoCommand"
+            name="Select project">
+      </command>
+   </extension>
+   
+      <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.thalesgroup.optet.securerepository.handlers.browseRepoHandler"
+            commandId="com.thalesgroup.optet.securerepository.commands.browseRepoCommand">
+      </handler>
+   </extension>
+</plugin>

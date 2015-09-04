@@ -1,0 +1,3 @@
+start the svn server
+
+"C:\Program Files\Subversion\bin\svnserve.exe" -d -r D:\temp\svn_repos
